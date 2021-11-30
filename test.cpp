@@ -52,15 +52,6 @@ std::map<ZZ, float>  GetFrequency(Vec<ZZ_p> EntryVector){
         }
     }
 
-
-
-    // for (auto it = entropies.begin(); it != entropies.end(); it++)
-    // {
-    //    // auto p = it->second/tot;
-    //   //  entropy -= (p * log2(p));
-    // }
-
-
     return entropies;
 }
 
@@ -208,8 +199,8 @@ void CalculateEntropyForAll(std::map<float, Mat<ZZ_p>>& entropies,Mat<ZZ_p>& X ,
 
 int main()
 {
-    const int P = 2; //Galois order
-    const int K = 6; //Number of sources
+    const int P = 3; //Galois order
+    const int K = 8; //Number of sources
     const int T = 10000; // Observation length
     const int pk = pow(P, K);
 
@@ -222,28 +213,44 @@ int main()
 
     Vec<float> source_1 {};
     source_1.append(0.2f);
-    source_1.append(0.8f);
+    source_1.append(0.5f);
+    source_1.append(0.3f);
 
 
     Vec<float> source_2 {};
-    source_2.append(0.9f);
+    source_2.append(0.6f);
+    source_2.append(0.3f);
     source_2.append(0.1f);
 
     Vec<float> source_3 {};
-    source_3.append(0.7f);
+    source_3.append(0.3f);
+    source_3.append(0.4f);
     source_3.append(0.3f);
 
     Vec<float> source_4 {};
-    source_4.append(0.4f);
-    source_4.append(0.6f);
+    source_4.append(0.1f);
+    source_4.append(0.8f);
+    source_4.append(0.1f);
 
     Vec<float> source_5 {};
     source_5.append(0.2f);
-    source_5.append(0.8f);
+    source_5.append(0.65f);
+    source_5.append(0.15f);
 
     Vec<float> source_6 {};
-    source_6.append(0.6f);
-    source_6.append(0.4f);
+    source_6.append(0.8f);
+    source_6.append(0.1f);
+    source_6.append(0.1f);
+
+    Vec<float> source_7 {};
+    source_7.append(0.1f);
+    source_7.append(0.1f);
+    source_7.append(0.8f);
+
+    Vec<float> source_8 {};
+    source_8.append(0.4f);
+    source_8.append(0.5f);
+    source_8.append(0.1f);
 
 
     Vec<Vec<float>> sources;
@@ -254,6 +261,8 @@ int main()
     sources.append(source_4);
     sources.append(source_5);
     sources.append(source_6);
+    sources.append(source_7);
+    sources.append(source_8);
 
 
 
@@ -320,7 +329,6 @@ int main()
             auto r = gauss(m); // Calculo do rank
             std::cout << r << std::endl;
 
-           // std::cout <<  it->first << std::endl;
             it = std::next(it, 1);
             if(r == long(i + 1)){
                 break;
@@ -337,29 +345,6 @@ int main()
     std::cout << "A matrix:" << std::endl << A << std::endl;
     std::cout << FinalMatrix * A << std::endl;
 
-   // int x=  conv<int>(p);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   // random(&Matrix);
 
 }
